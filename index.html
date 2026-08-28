@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortress Yield Consulting | Securing Growth. Surpassing Savings.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-dark: #070d19;
+            --navy-card: #0e172a;
+            --navy-border: #1e293b;
+            --blue-accent: #1d4ed8;
+            --blue-glow: #3b82f6;
+            --gold-primary: #d97706;
+            --gold-light: #fbbf24;
+            --gold-gradient: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--navy-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(7, 13, 25, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            max-height: 42px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--blue-glow);
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 5% 80px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            min-height: 90vh;
+            background: radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-col {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(217, 119, 6, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-title span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Metrics Bar */
+        .metrics-bar {
+            background: var(--navy-card);
+            border-top: 1px solid var(--navy-border);
+            border-bottom: 1px solid var(--navy-border);
+            padding: 40px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .metric-item {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .metric-item .number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            font-family: var(--font-heading);
+        }
+
+        .metric-item .label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Generic Section Styles */
+        .section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Cards Grid */
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 280px;
+            background: var(--navy-card);
+            border: 1px solid var(--navy-border);
+            padding: 35px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold-gradient);
+            border-radius: 12px 12px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(217, 119, 6, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(29, 78, 216, 0.2);
+            color: var(--blue-glow);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Comparison Table */
+        .benchmark-container {
+            overflow-x: auto;
+            background: var(--navy-card);
+            border: 1px solid var(--navy-border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .benchmark-table th, .benchmark-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--navy-border);
+        }
+
+        .benchmark-table th {
+            color: var(--gold-light);
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .benchmark-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .benchmark-table tr.highlight {
+            background: rgba(217, 119, 6, 0.08);
+            font-weight: 600;
+        }
+
+        .benchmark-table tr.highlight td {
+            color: #fff;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            margin: 60px 5% 100px 5%;
+            background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 60%, #78350f 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 60px 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #040811;
+            border-top: 1px solid var(--navy-border);
+            padding: 50px 5% 30px 5%;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .section-header h2 {
+                font-size: 1.9rem;
+            }
+            .cta-banner h2 {
+                font-size: 1.8rem;
+            }
+            .nav-logo img {
+                max-height: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <img src="FYC_logo.png" alt="Fortress Yield Consulting Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#rigor">Institutional Rigor</a></li>
+            <li><a href="#benchmark">Performance</a></li>
+            <li><a href="#consultation" class="btn-primary">Book Advisory</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+        <div class="hero-col">
+            <span class="hero-tag">Securing Growth. Surpassing Savings.</span>
+            <h1 class="hero-title">Superior Fixed-Term <span>Yield Strategies</span></h1>
+            <p class="hero-description">
+                Outperform traditional bank fixed deposits while preserving capital. Fortress Yield Consulting delivers structured 12-month fixed yield horizons engineered for high-net-worth investors and institutions.
+            </p>
+            <div class="hero-cta">
+                <a href="#consultation" class="btn-primary">Schedule Consultation</a>
+                <a href="#benchmark" class="btn-secondary">View Performance</a>
+            </div>
+        </div>
+        <div class="hero-col">
+            <div class="hero-image-wrapper">
+                <img src="FYC_prod.png" alt="Fortress Yield Showcase Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Bar -->
+    <section class="metrics-bar">
+        <div class="metric-item">
+            <div class="number">12-15%</div>
+            <div class="label">Target Annual Yield</div>
+        </div>
+        <div class="metric-item">
+            <div class="number">100%</div>
+            <div class="label">Capital Protection Priority</div>
+        </div>
+        <div class="metric-item">
+            <div class="number">12 Mos</div>
+            <div class="label">Fixed Term Horizon</div>
+        </div>
+    </section>
+
+    <!-- Section: Multi-Asset Yield Architecture -->
+    <section class="section" id="architecture">
+        <div class="section-header">
+            <h2>Multi-Asset Yield Architecture</h2>
+            <p>We deploy capital across highly liquid, defensive strategies structured to maximize returns while strictly minimizing downside exposure.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">01</div>
+                <h3 class="feature-title">Delta-Neutral Arbitrage</h3>
+                <p class="feature-desc">Capturing yield differentials across market inefficiency channels without taking directional price risk on underlying assets.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">02</div>
+                <h3 class="feature-title">Structured Credit Instruments</h3>
+                <p class="feature-desc">Allocating into high-grade collateralized credit facilities backed by verified real-world assets and senior debt tranches.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">03</div>
+                <h3 class="feature-title">Automated Liquidity Provision</h3>
+                <p class="feature-desc">Generating consistent yield streams through programmatic liquidity provisioning with algorithmic rebalancing protocols.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Designed for Institutional Rigor & Wealth Preservation -->
+    <section class="section" id="rigor" style="background: rgba(14, 23, 42, 0.5);">
+        <div class="section-header">
+            <h2>Designed for Institutional Rigor & Wealth Preservation</h2>
+            <p>Built from the ground up to offer the security of conservative financial structures alongside modern quantitative performance.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Capital Guardrail Infrastructure</h3>
+                <p class="feature-desc">Continuous multi-layer risk parameters and automated drawdown limiters designed to shield initial principal investments.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Transparent Reporting</h3>
+                <p class="feature-desc">Real-time performance tracking and quarterly audit statements providing full visibility into asset allocation and yield execution.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Non-Custodial Escrow Models</h3>
+                <p class="feature-desc">Institutional custody options ensuring assets remain under secure ring-fenced protection throughout the 12-month lock period.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Performance Benchmark -->
+    <section class="section" id="benchmark">
+        <div class="section-header">
+            <h2>Performance Benchmark</h2>
+            <p>Compare standard traditional savings instruments with our structured fixed-term yield horizon.</p>
+        </div>
+        <div class="benchmark-container">
+            <table class="benchmark-table">
+                <thead>
+                    <tr>
+                        <th>Asset / Strategy</th>
+                        <th>Target APY</th>
+                        <th>Risk Profile</th>
+                        <th>Term Horizon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard Bank Fixed Deposit</td>
+                        <td>4.5% - 6.5%</td>
+                        <td>Low</td>
+                        <td>12 - 36 Months</td>
+                    </tr>
+                    <tr>
+                        <td>Government Sovereign Bonds</td>
+                        <td>6.0% - 7.2%</td>
+                        <td>Very Low</td>
+                        <td>3 - 10 Years</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Fortress Structured Yield Strategy</td>
+                        <td>12.0% - 15.0%</td>
+                        <td>Controlled / Defensive</td>
+                        <td>12 Months Fixed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Banner: Ready to Outperform Standard Bank Savings? -->
+    <section class="cta-banner" id="consultation">
+        <h2>Ready to Outperform Standard Bank Savings?</h2>
+        <p>Book a private consultation with our quantitative yield strategists today to construct your custom 12-month allocation plan.</p>
+        <a href="#" class="btn-primary">Get Started Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="nav-logo">
+                <img src="FYC_footer.png" alt="Fortress Yield Consulting Logo">
+            </div>
+            <div>
+                <p>&copy; 2026 Fortress Yield Consulting. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Disclaimer: Structured strategies carry market exposure. Yield targets are based on historical performance models and quantitative simulations.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
